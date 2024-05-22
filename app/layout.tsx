@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { inter } from "@/libs/fonts";
+import { inter } from "@/constants/configs/fonts";
 
 export const metadata: Metadata = {
   title: "Nextjs Boilerplate",
