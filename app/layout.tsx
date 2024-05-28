@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { inter } from "@/constants/configs/fonts";
+import { fontSans } from "@/constants/configs/fonts";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Nextjs Boilerplate",
@@ -14,7 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
