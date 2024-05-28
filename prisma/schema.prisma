@@ -12,9 +12,12 @@ model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   password  String
-  nickname  String   @unique
-  createdAt DateTime @default(now())
+  image     String?
+  name      String   @unique
   posts     Post[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Post {
@@ -23,6 +26,7 @@ model Post {
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId    Int
+  
+  userId    Int      @map("user_id")
   user      User     @relation(fields: [userId], references: [id])
 }
