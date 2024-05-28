@@ -22,10 +22,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         });
         if (!user)
           throw new Error("User not found.", {
-            cause: { message: "user not found" },
+            cause: { message: "이메일 또는 비밀번호를 잘못 입력했습니다." },
           });
 
-        if (password !== user.password) throw new Error("Password Incorrect");
+        if (password !== user.password)
+          throw new Error("Password Incorrect", {
+            cause: { message: "이메일 또는 비밀번호를 잘못 입력했습니다." },
+          });
 
         return {
           id: user.id.toString(),
