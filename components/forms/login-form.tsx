@@ -1,9 +1,9 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { login } from "@/services/auth/actions";
-import { Button } from "../inputs/button";
 import { Spinner } from "../feedbacks/spinner";
+import { Button } from "../ui/button";
+import { login } from "@/services/auth/actions";
 
 export const LoginForm = () => {
   const [errorMessage, dispatch] = useFormState(login, undefined);
