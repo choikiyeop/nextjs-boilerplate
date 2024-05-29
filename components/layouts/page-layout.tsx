@@ -5,7 +5,7 @@ export const PageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header />
-      <div className="min-h-dvh mt-14">{children}</div>
+      <div className="min-h-dvh pt-14">{children}</div>
       <Footer />
     </>
   );
