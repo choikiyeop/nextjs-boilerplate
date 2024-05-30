@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { Spinner } from "../feedbacks/spinner";
+import { Spinner } from "../ui/spinner";
 import { Button } from "../ui/button";
 import { login } from "@/services/auth/actions";
 
