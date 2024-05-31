@@ -16,7 +16,7 @@ const posts = [
       href: "#",
       title: "Marketing",
     },
-    href: "#",
+    href: "/post/1",
     title: "Boost your conversion rate",
     description:
       "Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta",
