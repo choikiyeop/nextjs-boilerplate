@@ -1,5 +1,4 @@
 import { PostCard } from "@/components/elements/post-card";
-import { PostCard } from "@/components/elements/post-card";
 import { PageLayout } from "@/components/layouts/page-layout";
 import {
   Carousel,
