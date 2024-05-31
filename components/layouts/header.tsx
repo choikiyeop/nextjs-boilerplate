@@ -124,12 +124,11 @@ export const Header = () => {
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title, children, ...props }) => {
   return (
     <li>
       <NavigationMenuLink asChild>
         <a
-          ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
@@ -145,6 +144,7 @@ const ListItem = React.forwardRef<
     </li>
   );
 });
+ListItem.displayName = "ListItem";
 
 const components: { title: string; href: string; description: string }[] = [
   {
