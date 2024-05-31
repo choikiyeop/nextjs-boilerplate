@@ -1,22 +1,19 @@
-<<<<<<< develop
 import { PostCard } from "@/components/elements/post-card";
-=======
->>>>>>> main
-import { PageLayout } from "@/components/layouts/page-layout";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import Image from "next/image";
-
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 const posts = [
   {
     id: 1,
     datetime: new Date().toString(),
     date: "Mar 16, 2020",
     category: {
-      href: "#",
+      href: "/post/1",
       title: "Marketing",
     },
     href: "/post/1",
@@ -69,34 +66,33 @@ const posts = [
     },
   },
 ];
-
-export default async function Home() {
+export default function PostPage() {
   return (
-    <PageLayout>
-      <Carousel opts={{ loop: true }}>
-        <CarouselContent>
-          <CarouselItem>
-            <Image src="/tech.png" alt="tech" width={1920} height={300} />
-          </CarouselItem>
-          <CarouselItem>
-            <Image src="/rainy.png" alt="rainy" width={1920} height={720} />
-          </CarouselItem>
-          <CarouselItem>
-            <Image src="/coding.png" alt="coding" width={1920} height={720} />
-          </CarouselItem>
-        </CarouselContent>
-      </Carousel>
-<<<<<<< develop
-      <main className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto my-10 grid max-w-2xl grid-cols-1 gap-x-2 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
-      </main>
-=======
-      <main>페이지</main>
->>>>>>> main
-    </PageLayout>
+    <main className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="space-y-16 py-8">
+        {posts.map((post) => (
+          <PostCard key={post.id} orientation="vertical" post={post} />
+        ))}
+      </div>
+      <Pagination className="mt-8 mb-16">
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious href="#" />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">2</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">3</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationNext href="#" />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
+    </main>
   );
 }
