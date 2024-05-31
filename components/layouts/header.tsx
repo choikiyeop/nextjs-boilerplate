@@ -61,7 +61,6 @@ export const Header = () => {
             </SheetContent>
           </Sheet>
         </div>
-<<<<<<< develop
         <div className="hidden lg:flex lg:gap-x-3">
           <NavigationMenu>
             <NavigationMenuList>
@@ -116,34 +115,65 @@ export const Header = () => {
           >
             <Link href="/login">로그인</Link>
           </Button>
-=======
         <div className="hidden lg:flex lg:gap-x-12">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Product</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Blog</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <NavigationMenuLink>Link</NavigationMenuLink>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    {components.map((component) => (
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Product</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Documentation</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <NavigationMenuLink>Link</NavigationMenuLink>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    {components.map((component) => (
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
                 </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/docs" legacyBehavior passHref>
+                  <NavigationMenuLink className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                    Component
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
-            <Link href="/login">로그인</Link>
+          <div>
+            <Input className="flex items-center w-[175px]" />
           </div>
->>>>>>> main
+          <Button
+            variant="outline"
+            className="hidden lg:flex lg:flex-1 lg:justify-end items-center"
+            asChild
+          >
+            <Link href="/login">로그인</Link>
+          </Button>
         </div>
       </nav>
     </header>
   );
 };
-<<<<<<< develop
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -208,5 +238,3 @@ const components: { title: string; href: string; description: string }[] = [
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
 ];
-=======
->>>>>>> main
