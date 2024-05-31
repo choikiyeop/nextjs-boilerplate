@@ -61,6 +61,7 @@ export const Header = () => {
             </SheetContent>
           </Sheet>
         </div>
+<<<<<<< develop
         <div className="hidden lg:flex lg:gap-x-3">
           <NavigationMenu>
             <NavigationMenuList>
@@ -115,11 +116,34 @@ export const Header = () => {
           >
             <Link href="/login">로그인</Link>
           </Button>
+=======
+        <div className="hidden lg:flex lg:gap-x-12">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Product</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <NavigationMenuLink>Link</NavigationMenuLink>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Product</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <NavigationMenuLink>Link</NavigationMenuLink>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
+            <Link href="/login">로그인</Link>
+          </div>
+>>>>>>> main
         </div>
       </nav>
     </header>
   );
 };
+<<<<<<< develop
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -184,3 +208,5 @@ const components: { title: string; href: string; description: string }[] = [
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
 ];
+=======
+>>>>>>> main
