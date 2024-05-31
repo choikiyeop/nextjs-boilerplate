@@ -61,7 +61,7 @@ export const Header = () => {
             </SheetContent>
           </Sheet>
         </div>
-        <div className="hidden lg:flex lg:gap-x-3">
+        <div className="hidden lg:flex lg:gap-x-12">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
