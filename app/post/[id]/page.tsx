@@ -1,8 +1,9 @@
+import { CommentSection } from "@/components/elements/comment-section";
 import { Separator } from "@/components/ui/separator";
 
 export default function PostPage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 lg:px-16">
+    <main className="mx-auto max-w-5xl px-4 lg:px-16">
       <article className="space-y-4 y-8 lg:space-y-8 lg:my-16">
         <div className="mt-8 lg:mt-16 space-y-3">
           <h1 className="text-4xl font-bold lg:text-5xl">
@@ -21,6 +22,7 @@ export default function PostPage() {
           <p>안녕하세요 오늘은</p>
         </div>
       </article>
+      <CommentSection />
     </main>
   );
 }
