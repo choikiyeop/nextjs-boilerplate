@@ -1,7 +1,7 @@
 "use client";
 
-import { $getRoot, $getSelection } from "lexical";
-import { useEffect } from "react";
+import { $getRoot, $getSelection, EditorState } from "lexical";
+import { useEffect, useState } from "react";
 
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
@@ -9,6 +9,7 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
+import { OnChangePlugin } from "./OnChangePlugin";
 
 const theme = {
   // Theme styling goes here
@@ -23,6 +24,13 @@ function onError(error: Error) {
 }
 
 export const Editor = () => {
+  const [editorState, setEditorState] = useState<string>("");
+
+  const onChange = (editorState: EditorState) => {
+    const editorStateJSON = editorState.toJSON();
+    setEditorState(JSON.stringify(editorStateJSON));
+  };
+
   const initialConfig = {
     namespace: "MyEditor",
     theme,
@@ -30,14 +38,19 @@ export const Editor = () => {
   };
 
   return (
-    <LexicalComposer initialConfig={initialConfig}>
-      <RichTextPlugin
-        contentEditable={<ContentEditable />}
-        placeholder={<div>Enter some text...</div>}
-        ErrorBoundary={LexicalErrorBoundary}
-      />
-      <HistoryPlugin />
-      <AutoFocusPlugin />
-    </LexicalComposer>
+    <div className="">
+      <LexicalComposer initialConfig={initialConfig}>
+        <RichTextPlugin
+          contentEditable={
+            <ContentEditable className="min-h-80 px-7 py-6 outline-none border rounded-b-lg" />
+          }
+          placeholder={<div>Enter some text...</div>}
+          ErrorBoundary={LexicalErrorBoundary}
+        />
+        <HistoryPlugin />
+        <AutoFocusPlugin />
+        <OnChangePlugin onChange={onChange} />
+      </LexicalComposer>
+    </div>
   );
 };
