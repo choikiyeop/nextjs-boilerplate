@@ -10,6 +10,8 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { OnChangePlugin } from "./OnChangePlugin";
+import ToolbarPlugin from "./ToolbarPlugin";
+import { Button } from "../ui/button";
 
 const theme = {
   // Theme styling goes here
@@ -31,26 +33,35 @@ export const Editor = () => {
     setEditorState(JSON.stringify(editorStateJSON));
   };
 
+  const onClick = () => {
+    console.log(editorState);
+    console.log("create post");
+  };
+
   const initialConfig = {
-    namespace: "MyEditor",
+    namespace: "editor",
     theme,
     onError,
   };
 
   return (
-    <div className="">
+    <div className="flex flex-col">
       <LexicalComposer initialConfig={initialConfig}>
+        <ToolbarPlugin />
         <RichTextPlugin
           contentEditable={
-            <ContentEditable className="min-h-80 px-7 py-6 outline-none border rounded-b-lg" />
+            <ContentEditable className="min-h-80 px-7 py-4 outline-none border rounded-b-lg" />
           }
-          placeholder={<div>Enter some text...</div>}
+          placeholder={<div className="text-gray-300">Enter some text...</div>}
           ErrorBoundary={LexicalErrorBoundary}
         />
         <HistoryPlugin />
         <AutoFocusPlugin />
         <OnChangePlugin onChange={onChange} />
       </LexicalComposer>
+      <Button onClick={onClick} className="self-end mt-3">
+        작성
+      </Button>
     </div>
   );
 };
